@@ -1,0 +1,19 @@
+{% extends "formapi/base.html" %}
+{% load customfilter %}
+{% block left-content %}
+<h1>Candidate Detail</h1>
+<p class="float-end">Application No: {{candidate.id}}</p>
+<img src="{{candidate.profile_image.url}}" alt="" class="img-fluid img-thumbnail float-end mt-4" width="150" height="150">
+<p>Name: {{candidate.name}}</p>
+<p>Date of birth: {{candidate.dob}}</p>
+<p>Gender: {{candidate.gender}}</p>
+<p>Address: {{candidate.locality}}, {{candidate.city}}, {{candidate.state}} - {{candidate.pin}}</p>
+<p>Mobile No: {{candidate.mobile}}</p>
+<p>Email ID: {{candidate.email}}</p>
+<p>Preferred Job Cities: {{candidate.job_city|remove_char:"[]'"}}</p>
+<p>Attachment: <a href="{{candidate.my_file.url}}">Download File</a></p>
+<div class="text-center">
+  <a href="/" class="btn btn-danger">Back to Home</a>
+</div>
+
+{% endblock left-content %}
